@@ -12,7 +12,17 @@
 \usepackage{amssymb}  % Symbole und Schriftarten
 \usepackage{amsthm}   % erweiterte Theorem-Umgebungen
 
-\usepackage{mathrsfs}  % gibt den Befehl "\mathscr{}" f�r sch�ne
+\usepackage{mathrsfs}  % gibt den Befehl "\mathscr{}" für schöne
+
+\usepackage[noframe]{showframe}
+\usepackage{framed}
+\renewenvironment{shaded}{%
+	\def\FrameCommand{\fboxsep=\FrameSep \colorbox{shadecolor}}%
+	\MakeFramed{\advance\hsize-\width \FrameRestore\FrameRestore}}%
+{\endMakeFramed}
+\definecolor{shadecolor}{gray}{0.75}
+
+\newcommand\underrel[2]{\mathrel{\mathop{#2}\limits_{#1}}}
 
 \begin{document}
 
@@ -20,100 +30,161 @@
 Funktion = Summe eines Polynoms + Fehlerterm (Restglied) \\
 Problem: Funktionen auf Rechner darstellen ( sin,cos,Expo,..)\\
 Grundidee:\\
-f(x) durch Polynom Pn(x) approximieren (annähern)\\
-Polynom :\\
-\includegraphics[width=1\textwidth]{Bilder/V1/1.png}
+f(x) durch Polynom $P_n(x)$ approximieren (annähern)\\
+Polynom :\hspace{5mm}
+$P_n(x) = a_0 + a_1 x + a_2 x^2 + ... + a_n x^n,\ a_k\in\mathbb{R},\ x\in I \subseteq\mathbb{R},\ n\in\mathbb{N}$\\
 1. Forderung 0 ist im Intervall enthalten\\
 Ansatz:\\
 Wert von f an der Stelle x (exakt)\\
-\= Näherung + Rest\\
-\includegraphics[width=0.5\textwidth]{Bilder/V1/2.png}
+= Näherung + Rest\\
+$\underbrace{f(x)}_{\text{exakt}}=\underbrace{P_n(x)}_{\text{Näherung}}+\underbrace{R_n(x)}_{\text{Rest (Fehler)}},\ x\in I\ 0\in I$\\
 \\
 Weitere Forderung:\\
-an der Stelle 0 soll der Funktionswert und der Wert der k'ten Ableitung von k=0 (0.ableitung)\\
-\includegraphics[width=0.4\textwidth]{Bilder/V1/3.png}\\
+an der Stelle 0 soll der Funktionswert und der Wert der k'ten Ableitung von k=0 (0. Ableitung)\\
+$\underbrace{f^{(k)}(0)}_{\text{gegeben}}=P_n^{(k)}(0),\ k=0,1,2,...n$\\
 k'te Ableitung eines Polynoms:\\
-\includegraphics[width=0.5\textwidth]{Bilder/V1/4.png}
-\includegraphics[width=0.3\textwidth]{Bilder/V1/5.png}
+$$
+\begin{matrix}
+& P_n(x)&=&a_0+a_1 x+a_2 x^2+a_3 x^3+...+a_n x^n\\
+k=1\Rightarrow & \left(P_n(x)\right)'&=&1\cdot a_1+2\cdot a_2 x+3\cdot a_3 x^2+...+n\cdot a_n x^{n-1}\\
+k=2\Rightarrow & \left(P_n(x)\right)''&=&2\cdot a_1+2\cdot 3\cdot a_2 x+...+n\cdot\left(n-1\right)\cdot a_n x^{n-2}
+\end{matrix}
+$$
+\begin{shaded}
+	$\Rightarrow a_k=\frac{1}{k!}\cdot f^{(k)}(0)$
+\end{shaded}
 
 \subsubsection{Näherungspolynom}
-\includegraphics[width=0.5\textwidth]{Bilder/V1/6.png}\\
+$P_n(x)=\sum\limits_{k=0}^{n}\frac{1}{k!}f^{(k)}(0)x^k= \sum\limits_{k=0}^{n}\frac{1}{k!}f^{(k)}(0)\left(x-0\right)^k$\\
 Stelle 0 geht als Funktionswert ein\\
-Wenn x(hoch)k \= (x-0)(hoch)k\\
+Wenn $x^k = (x-0)^k$\\
 Problem: 0 nicht im Intervall ?\\
-Forderung ist gleich, bzw bezieht sich auf x0\\
-= (x-x0)(hoch)k\\
-\includegraphics[width=0.4\textwidth]{Bilder/V1/7.png}
+Forderung ist gleich, bzw bezieht sich auf $x_0$\\
+$= (x-x_0)^k$\\
+$P_n(x)=\sum\limits_{k=0}^{n}\frac{1}{k!}f^{(k)}\left(x_0\right)\left(x-x_0\right)^k$
 
 \subsection{Satz von Taylor}
 Funktion f soll in einem Intervall, n+1 mal stetig differenzierbar sein.\\
 d.h. Ableitungen existieren und sind stetig\\
-Formel:\\
-\includegraphics[width=1\textwidth]{Bilder/V1/8.png}\\
-Entwicklungspunkt x0 = beliebig, aber fest aus Intervall\\
-Zwischenstelle *Symbol* liegt zwischen x und x0, kann also kleiner als x oder auch größer sein.\\
+Formel:
+\begin{shaded}
+	$$
+	\begin{matrix}
+	f(x)=\underbrace{f(x_0)+\frac{f'(x_0)}{1!}\left(x-x_0\right)+\frac{f''(x_0)}{2!}\left(x-x_0\right)^2...+\frac{f^{(n)}(x_0)}{n!}\left(x-x_0\right)^n}_{\text{Taylorpolynom n-ter Ordnung (Hauptteil)}}\\
+	\\
+	+\underbrace{\frac{f^{(n+1)}(\xi)}{\left(n+1\right)!}\left(x-x_0\right)^{n+1}}_{R_n \text{Restglied von Lagrange}}
+	\end{matrix}
+	$$
+\end{shaded}
+Entwicklungspunkt $x_0$ = beliebig, aber fest aus Intervall\\
+Zwischenstelle $\xi$ liegt zwischen x und $x_0$, kann also kleiner als x oder auch größer sein.\\
 \subsubsection{Fehlerabschätzung}
 n+1. Ableitung beschänkt im Intervall I.\\
 = Für alle x aus I der Betrag der n+1 Ableitung von f an der Stelle x kleiner 0 einer Konstanten ist\\
-\includegraphics[width=1\textwidth]{Bilder/V1/9.png}\\
+$f^{(n+1)}$ beschränkt in I, d.h.:
+\begin{shaded}
+	$\left|f^{(n+1)}(x)\right|\leq M,\ x\in I$
+\end{shaded}
+$$
+\begin{matrix}
+\Rightarrow\left|f(x)-P_n(x)\right|=\left|R_n(x)\right| &=& \left|\frac{1}{\left(n+1\right)!}f^{(n+1)}(\xi)\left(x-x_0\right)^{n+1}\right| \\
+\\
+&=& \frac{1}{\left(n+1\right)!}\left|\left(x-x_09\right)^{n+1}\right|\left|f^{(n+1)}(\xi)\right| \\
+\\
+&\leq& \frac{1}{\left(n+1\right)!}\left|\left(x-x_09\right)^{n+1}\right| M \\
+\end{matrix}
+$$
+\newpage
 Man sieht:\\
-1. Je größer das n, dest kleiner wird der Faktor 1 (1/(1-n)!)\\
+1. Je größer das n, dest kleiner wird der Faktor $1\frac{1}{(1-n)!}$\\
 auf Deutsch: mit Großerem n wird die approximation besser\\
-2. Je weiter das x von x0 weg liegt, desto größer wird der Bertrag x-x0, \\
+2. Je weiter das x von $x_0$ weg liegt, desto größer wird der Bertrag $x-x_0$, \\
 desto mehr Einfluss hat der Term auf die Genauigkeit\\
 \subsubsection{Beispiel 1}
-Die Berechnung von Wurzeln - Wurzel(42)\\
-mit TaylorPolynom 1. Ordnung; Entwicklungspunkt x0 größer 0\\
-\includegraphics[width=1\textwidth]{Bilder/V1/10.png}\\
-setzten x ein (Wurzel(42)) und bestimmen x0 = 36\\
-\includegraphics[width=1\textwidth]{Bilder/V1/11.png}\\
-Umstellen für Fehlerabschätzung des Restglieds\\
-\includegraphics[width=1\textwidth]{Bilder/V1/12.png}\\
+Die Berechnung von Wurzeln - $\sqrt{42}$\\
+mit TaylorPolynom 1. Ordnung; Entwicklungspunkt $x_0$ größer 0\\
+$f(x)=\sqrt{x}=x^{\frac{1}{2}}\ \Rightarrow f'(x)=\frac{1}{2}x^{-\frac{1}{2}}=\frac{1}{2}\frac{1}{\sqrt{x}}$\\
+$\Rightarrow$ Taylorpolynom $\sqrt{x_0}+\frac{1}{2}\frac{1}{\sqrt{x_0}}\left(x-x_0\right)$\\
+setzten x ein ($\sqrt{42}$) und bestimmen $x_0 = 36$\\
+$\sqrt{x}\approx\sqrt{x_0}+\frac{1}{2}\frac{1}{\sqrt{x_0}}\left(x-x_0\right)\Rightarrow\sqrt{42}\approx\sqrt{36}+\underbrace{\frac{1}{2}\frac{1}{\sqrt{36}}\left(42-36\right)}_{\frac{6}{12}}=6.5$\\
+Umstellen für Fehlerabschätzung des Restglieds
+\begin{shaded}
+	$f(x)=f(x_0)+\frac{f'(x_0)}{1!}\left(x-x_0\right)+\frac{f''(\xi)}{2!}\left(x-x_0\right)^2$\\
+	\\
+	$\left|f(x)-f(x_0)-\frac{f'(x_0)}{1!}\left(x-x_0\right)\right|=\left|\frac{f''(\xi)}{2!}\left(x-x_0\right)^2\right|$
+\end{shaded}
 Fehlerabschätzung des Restglieds 
-\includegraphics[width=0.5\textwidth]{Bilder/V1/13.png}\\
+$R_1=\frac{1}{2!}f''(\xi)\left(x-x_0\right)^2$\\
 Brauchen 2. Ableitung\\
-\includegraphics[width=1\textwidth]{Bilder/V1/14.png}\\
-\newpage
+$f'(x)=\frac{1}{2}x^{-\frac{1}{2}}=\frac{1}{2}\frac{1}{\sqrt{x}}\Rightarrow f''(x)=-\frac{1}{4}x^{-\frac{3}{2}}=-\frac{1}{4}\frac{1}{\sqrt{x^3}}$\\
 Dann einsetzten, ergibt:\\
-\includegraphics[width=1\textwidth]{Bilder/V1/15.png}\\
+$\Rightarrow R_1=\frac{1}{2!}\cdot\left(-\frac{1}{4}\frac{1}{\sqrt{\xi^3}}\right)\left(x-x_0\right)^2$\\
 Umstellen und einsetzten:\\
-\includegraphics[width=1\textwidth]{Bilder/V1/16.png}\\
+$=-\frac{1}{8}\frac{1}{\sqrt{\xi^3}}\left(42-36\right)^2,\ \xi$ zwischen x = 42 und $x_0 = 36$\\
 Jetzt alles zusammen packen:\\
-\includegraphics[width=1\textwidth]{Bilder/V1/17.png}\\
-Den Abschnitt mit XI[ksi] verkürzen\\
-\includegraphics[width=1\textwidth]{Bilder/V1/18.png}\\
-Der Schlimmste Fall ist, wenn XI gleich X0, also 36 ist:\\
-\includegraphics[width=1\textwidth]{Bilder/V1/19.png}\\
-Zusammenfassung:\\
-\includegraphics[width=1\textwidth]{Bilder/V1/20.png}\\
-\subsubsection{Beispiel 2}
-\includegraphics[width=0.5\textwidth]{Bilder/V1/21.png}\\
-1. Schritt: Ableitungen + x0 einsetzten\\
-\includegraphics[width=0.3\textwidth]{Bilder/V1/22.png}
-\includegraphics[width=0.3\textwidth]{Bilder/V1/22_1.png}\\
-\includegraphics[width=0.3\textwidth]{Bilder/V1/23.png}
-\includegraphics[width=0.3\textwidth]{Bilder/V1/23_1.png}\\
-\includegraphics[width=0.35\textwidth]{Bilder/V1/24.png}
-\includegraphics[width=0.9\textwidth]{Bilder/V1/25.png}\\\\
+$\left|\sqrt{42}-\underbrace{\left(f(x_0)+\frac{f'(x_0)}{1!}\left(x-x_0\right)\right)}_{=6.5}\right|=\underbrace{\left|\frac{f''(\xi)}{2!}\left(x-x_0\right)^2\right|}_{R_1}=\left|-\frac{1}{8}\frac{1}{\sqrt{\xi^3}}(6)^2\right|$\\
 \newpage
+Den Abschnitt mit $\xi$ verkürzen\\
+$\left|-\frac{1}{8}\frac{1}{\sqrt{\xi}}(6)^2\right|=\left|-\frac{36}{8}\frac{1}{\underbrace{\sqrt{\xi^3}}_{>0}}\right|=\frac{18}{4}\frac{1}{\sqrt{\xi^3}}$\\
+\fbox{Ein Bruch vergrößert sich, wenn der Nenner verkleinert wird.}\\
+\\
+Der Schlimmste Fall ist, wenn $\xi$ gleich $x_0$, also 36 ist:\\
+$\leq\frac{18}{4}\frac{1}{\sqrt{36^3}}=\frac{18}{4}\cdot\frac{1}{216}=\frac{1}{48}=0.02083..\leq 0.021$\\
+\\
+Zusammenfassung:\\
+Fehlerabschätzung  $\left|\sqrt{42}-6.5\right|=\left|\frac{f''(\xi)}{2!}\left(x-x_0\right)^2\right|=\left|-\frac{1}{8}\frac{1}{\sqrt{\xi^3}}(6)^2\right|\leq 0.021$\\
+\hspace*{1cm}$\left|\sqrt{42}-6.5\right|\leq 0.021\Rightarrow$\\
+\hspace*{1cm}$6.5-0.021\leq\sqrt{42}\leq 6.5+0.021$\\
+Fehlerterm $-\frac{36}{8}\frac{1}{\sqrt{\xi^3}}$\\
+ist negativ, d.h. der tatsächliche Wert ist kleiner als der berechnete Wert 6.5.\\
+Intervall, in dem die Wurzel liegt:
+\hspace*{1cm}$\sqrt{42}\in\left[6.5-0.021, 6.5\right]=\left[6.479, 6.5\right]$\\
+\subsubsection{Beispiel 2}
+$f(x)=\frac{1}{x^2},\ x_0=1,\ x\geq1,\ n=2$\\
+1. Schritt: Ableitungen + $x_0$ einsetzten\\
+\hspace*{1cm}$f'(x)=\frac{-2}{x^3}\rightarrow f'(1)=-2$\\
+\hspace*{1cm}$f''(x)=\frac{6}{x^4}\rightarrow f''(1)=6$\\
+\hspace*{1cm}$f'''(x)=-\frac{24}{x^5}$\\
+\\
+\hspace*{1cm}$f(x)=\frac{1}{x^2}=1+(-2)\frac{\left(x-1\right)}{1!}+6\frac{\left(x-1\right)^2}{2!}+R_2$\\
+\\
 Nun kommt die Fehlerabschätzung des Restglieds:\\
 Erstmal wieder Kürzen:\\
-\includegraphics[width=0.5\textwidth]{Bilder/V1/26.png}\\
-Mit dem Restglied:\\
-\includegraphics[width=0.8\textwidth]{Bilder/V1/27.png}\\
-Und die Abschätzung: eig 1 Einsetzten und schauen, was passiert\\
-\includegraphics[width=0.8\textwidth]{Bilder/V1/28.png}\\
+$\underbrace{1+(-2)\frac{\left(x-1\right)}{1!}+6\frac{\left(x-1\right)^2}{2!}}_{1-2\left(x-1\right)+3\left(x-1\right)^2}$\\
 \newpage
+Mit dem Restglied:\\
+$R_2=\frac{1}{3!}\cdot\frac{-24}{\xi^5}\left(x-1\right)^3=-\frac{4}{\xi^5}\left(x-1\right)^3,\ 1\leq\xi\leq x$\\
+\\
+Und die Abschätzung: eig 1 Einsetzten und schauen, was passiert\\
+$\left|R_2\right|=\left|-\frac{4}{\xi^5}\left(x-1\right)^3\right|\underrel{1\leq\xi\leq x}{=}\left|-\frac{4}{\xi^5}\right|\cdot\left|\left(x-1\right)^3\right|\underrel{1\leq\xi\leq x}{\leq}4\cdot\left|\left(x-1\right)^3\right|$\\
 \subsubsection{Beispiel 3}
-\includegraphics[width=0.5\textwidth]{Bilder/V1/29.png}\\
+$f(x)=x+\frac{1}{2}x^2+\frac{1}{6}x^3+e^{-x},\ x\in\left[-1, 1\right]$\\
 Wie immer erstmal Ableitungen + Einsetzten:\\
-\includegraphics[width=0.7\textwidth]{Bilder/V1/30.png}\\
+\hspace*{1cm}$f(x)=x+\frac{1}{2}x^2+\frac{1}{6}x^3+e^{-x}\Rightarrow f(0)=e^0=1$\\
+\hspace*{1cm}$f'(x)=1+x+\frac{1}{2}x^2-e^{-x}\Rightarrow f'(0)=1-1=0$\\
+\hspace*{1cm}$f''(x)=1+x+e^{-x}\Rightarrow f''(0)=1+1=2$\\
+Für Restglied wird dritte Ableitung benötigt\\
+\hspace*{1cm}$f'''(x)=1-e^{-x}$\\
 Für e gilt:\\
-\includegraphics[width=0.1\textwidth]{Bilder/V1/31.png}\\
+\hspace*{1cm}$\frac{1}{e}=\frac{1}{e}-1$\\
 Jetzt alles in die Formel einsetzten:\\
-\includegraphics[width=0.8\textwidth]{Bilder/V1/32.png}\\
-\includegraphics[width=0.8\textwidth]{Bilder/V1/33.png}\\
-\includegraphics[width=0.8\textwidth]{Bilder/V1/34.png}\\
-Worst Case, wäre XI gleich -1\\
+Taylorpolynom zweiter Ordnung um Entwicklungspunkt $x_0=0$ aufstellen:\\
+\hspace*{1cm}$1+x^2$\\
+Restglied und Lage von $\xi$ angeben !!\\
+$R_2(x)=\frac{1}{3!}\left(1-e^{-\xi}\right)x^3,$
+\begin{shaded}
+	$\xi$ zwischen $x_0=0$ und $x\in\left[-1,1\right]$
+\end{shaded}
+Restglied abschätzen\hspace*{1cm}Dreiecksungleichung $\left|a+b\right|\leq\left|a\right|+\left|b\right|$\\
+$\left|R_2(x)\right|=\left|\frac{1}{3!}\left(1-e^{-\xi}\right)x^3\right|\leq\frac{1}{6}\left(\left|1\right|+\left|-e^{-\xi}\right|\right)\left|x^3\right|$\\
+\\
+worst-case-Abschätzung\hspace*{1cm}$=\frac{1}{6}\left(1+e^{-\xi}\right)\left|x^3\right|$
+\begin{shaded}
+	$\leq\frac{1}{6}\left(1+e\right)\left|x^3\right|\leq 0.6197\left|x^3\right|$
+\end{shaded}
+\begin{shaded}
+	$\xi$ zwischen $x_0=0$ und $x\in\left[-1,1\right]$
+\end{shaded}
+Worst Case, wäre $\xi$ gleich -1\\
 \end{document} 
 
