@@ -13,3 +13,13 @@ sin(x^2) = 2x*cos(x^2)
 cos(x^2) = -2x*sin(x^2)
 sin^2(x) = 2*cos(x)sin(x)
 cos^2(x) = -2*cos(x)+sin(x)
+2*sin(x) = 2*cos(x)
+2*cos(x) = -1*sin(x)
+(1/x)^2 = -(2/x^3)
+umformung:
+x^x =()= e^ln(x)x
+x*ln(x) = ln(x)/(1/x)
+(1/x)^2 = (1/x^2)
+1/x = x^-1
+(1/x)/(1/-x^2) = -x
+x^n = e^(n * ln x)
