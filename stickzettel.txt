@@ -16,6 +16,7 @@ cos^2(x) = -2*cos(x)+sin(x)
 2*sin(x) = 2*cos(x)
 2*cos(x) = -1*sin(x)
 (1/x)^2 = -(2/x^3)
+sqrt(1+x^2) = x/sqrt(1+x^2)
 umformung:
 x^x =()= e^ln(x)x
 x*ln(x) = ln(x)/(1/x)
@@ -23,3 +24,9 @@ x*ln(x) = ln(x)/(1/x)
 1/x = x^-1
 (1/x)/(1/-x^2) = -x
 x^n = e^(n * ln x)
+e^ln(x) = x
+ln(e^x) = x
+sqrt(x) = x^(1/2)
+binomische formeln
+e^0 = 1
+e^1 = e
