@@ -186,5 +186,49 @@ worst-case-Abschätzung\hspace*{1cm}$=\frac{1}{6}\left(1+e^{-\xi}\right)\left|x^
 	$\xi$ zwischen $x_0=0$ und $x\in\left[-1,1\right]$
 \end{shaded}
 Worst Case, wäre $\xi$ gleich -1\\
+
+\section{22. Reihen}
+\underline{\textbf{Definition 1}}\\
+Es sei $a_k$ eine Zahlenfolge. Durch schrittweise Addition der ersten $n$ Glieder erhält man eine Folge $s_n$ mit den Gliedern:\\
+$s_1 = a_1, s_2 = a_2, ... ,s_1 = \sum\limits_{k=1}^{n}a_k$ \\
+Die Folge $s_n$ nennt man die zur Folge $a_k$ gehörige \underline{unendliche Reihe}.\\
+Das $n$-te Glied heißt $n$-te Partialsumme.\\
+\underline{\textbf{Beispiel 1}}\\
+$a_k = \frac{1}{k}, k = 1,2,3,..$\\
+$s_1=1,s_2=2+\frac{1}{2},s_2=1+\frac{1}{2}+\frac{1}{3},...,s_n=\sum\limits_{k=1}^{n}\frac{1}{k}$
+\\
+\underline{\textbf{Definition 2}}\\
+Falls die Folge $s_n$ der Partialsummen keinen Grenzwert
+besitzt, nennt man die Reihe divergent.
+Die Reihe heißt konvergent, wenn $s_n$ konvergiert. Dann setzt
+man\\ 
+$s = \lim \limits_{n \to \infty}s_n=\lim \limits_{n \to \infty}\sum\limits_{k=1}^{n}a_k=\sum\limits_{k=1}^{\infty}a_k$
+\\
+Im Falle der Konvergenz sagt man die Reihe $\sum\limits_{k=1}^{\infty}a_k$ ist konvergent und nennt $s$ den Grenzwert die Summe der unendlichen Reihe.
+\\
+\underline{\textbf{Beispiel 2}}\\
+$a_k=q^k,k=0,1,..$\\
+$s_0=a_0=1$\\
+$s_1=a_0+a_1=1+q$\\
+$s_2=a_0+a_1+a_2$\\
+$s_n=a_0+a_1+...+a_n=\sum\limits_{k=0}^{n}q^k$Hinweis:$\sum\limits_{k=0}^{n}q^k=\frac{1-q^{n+1}}{1-q}$\\
+$\lim \limits_{n \to \infty}s_n =\lim \limits_{n \to \infty} \frac{1-q^{n+1}}{1-q}=\frac{1-\lim \limits_{n \to \infty}q^{n+1}}{1-q}$
+\begin{shaded}
+	$\lim \limits_{n \to \infty}s_n =\lim \limits_{n \to \infty}\sum\limits_{k=0}^{n}q^k=\frac{1-\lim \limits_{n \to \infty}q^{n+1}}{1-q}$
+\end{shaded}
+\newpage
+\textbf{Geometrische Reihe} $\sum\limits_{k=0}^{n}q^k =\frac{1}{1-q},|q|<1$
+\\
+Für \textcolor{red}{$|q|>1$} wächst der Term $q_n+1$ für $n\rightarrow\infty$ betragsmäßig unbeschränkt,\\ so dass \textbf{Divergenz} der Folge $s_n$ und somit der Reihe vorliegt.
+\\
+\\
+Im Fall \textcolor{red}{$q=1$} gilt für die Partialsumme $s_n=n+1$.\\Damit liegt \textbf{Divergenz} der Reihe vor.
+\\
+\\
+Im Fall \textcolor{red}{$|q|<1$} strebt $q_n+1$ gegen den Grenzwert 0 und die Reihe ist \textbf{konvergent}.
+\\
+\\
+Im Fall \textcolor{red}{$q=-1$} wechselt $s_n$ fortlaufend zwischen den Werten 1 und 0, d.h. es liegt \textbf{Divergenz} vor
+
 \end{document} 
 
