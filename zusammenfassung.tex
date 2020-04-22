@@ -60,6 +60,8 @@ auf Deutsch: mit Großerem n wird die approximation besser\\
 2. Je weiter das x von $x_0$ weg liegt, desto größer wird der Bertrag $x-x_0$, \\
 desto mehr Einfluss hat der Term auf die Genauigkeit\\
 \section{Reihen}
+\textbf{Die Summe der Glieder einer Folge (oder eines Teils der Folgenglieder) wird als Reihe bezeichnet.}\\
+\\
 Die Folge $s_n$ nennt man die zur Folge $a_k$ gehörige unendliche
 Reihe. Das n-te Glied heißt n-te Partialsumme.
 $s_n=\sum\limits_{k=1}^{n}a_k$
@@ -115,4 +117,73 @@ Dann ist die Reihe $\sum\limits_{k=1}^{\infty}a_k$ \textbf{divergent}.
 $\sum\limits-{k=1}^{\infty}\frac{1}{2k-1}$ wächst ähnlich wie $\sum\limits_{k=1}^{\infty}\frac{1}{2k}$\\
 Da nun die harmonische Reihe $\sum\limits_{k=1}^{\infty}\frac{1}{k}$ divergiert, divergiert auch die Reihe $\sum\limits_{k=1}^{\infty}\frac{1}{2k}$ und damit auch $\sum\limits_{k=1}^{\infty}\frac{1}{2k-1}$
 \\$2k-1\leq 2k \leftrightarrow \frac{1}{\underbrace{2k-1}_{a_k}}\geq \frac{1}{\underbrace{2k}_{=c_k}}$
+\\\underline{\textbf{\textcolor{red}{Quotientenkriterium:}}}\\
+Gilt für die \textbf{Folge} $a_k$:$\lim\limits_{k\rightarrow \infty}|\frac{a_{k+1}}{a_k}|<1$, dann ist die \textbf{Reihe}: $\sum\limits_{k=1}^{\infty}a_k\leftrightarrow s_n=\sum\limits_{k=1}^{n}a_k$ \textbf{absolut konvergent.}\\
+Gilt $\lim\limits_{k\rightarrow \infty}|\frac{a_{k+1}}{a_k}|>1$ ist die Reihe \textbf{divergent.}\\
+Gilt $\lim\limits_{k\rightarrow \infty}|\frac{a_{k+1}}{a_k}|=1$ kann man keine Aussage treffen.\\
+\\Bsp:\\
+Um den Konvergenztest \textbf{Quotientenkriterium} anwenden zu können,
+müssen wir aber noch $a_{n+1}$ bestimmen. Dies geschieht ganz einfach dadurch,
+dass wir alle $n$ durch $n+1$ ersetzen:\\
+\\
+$a_n=\frac{3^n}{n^{100}} \rightarrow a_{n+1}=\frac{3^{n+1}}{(n+1)^{100}}$\\
+\\
+Diese beiden Werte jetzt in das Quotientenkriterium einsetzen:\\
+\\
+$\lim\limits_{n\rightarrow\infty}|\frac{a_{n+1}}{a_n}|=\lim\limits_{n\rightarrow\infty}|\frac{\frac{3^{n+1}}{(n+1)^{100}}}{\frac{3^n}{n^{100}}}|$\\
+\\
+Mit den Mitteln der Bruchrechnung vereinfachen wir den Term (Zur Erinnerung:\\
+Man dividiert durch einen Bruch, indem man mit dem Kehrwert multipliziert):\\
+\\
+$\lim\limits_{n\rightarrow\infty}|\frac{a_{n+1}}{a_n}|=\lim\limits_{n\rightarrow\infty}|\frac{3^{n+1}}{(n+1)^{100}}\cdot\frac{n^{100}}{3^n}|$\\
+\\
+Jetzt multiplizieren wir die beiden Brüche miteinander, wodurch
+nur noch ein Bruchstrich übrig bleibt:\\
+\\
+$\lim\limits_{n\rightarrow\infty}|\frac{a_{n+1}}{a_n}|=\lim\limits_{n\rightarrow\infty}|\frac{3^{n+1}\cdot n^{100}}{(n+1)^{100}\cdot 3^n}|$\\
+\\
+Jetzt zerlegen wir $3^{n+1}$ mit Hilfe des Potenzgesetzes: $a^{n+m}=a^n\cdot a^m$
+Dadurch können wir den Bruch mit $3^n$ kürzen:\\
+\\
+$\lim\limits_{n\rightarrow\infty}|\frac{a_{n+1}}{a_n}|=\lim\limits_{n\rightarrow\infty}|\frac{\textcolor{blue}{\not{3^n}\cdot 3}\cdot n^{100}}{(n+1)^{100}\cdot \not{3^n}}|=\lim\limits_{n\rightarrow\infty}|\frac{3\cdot n^{100}}{(n+1)^{100}}|$\\
+\\
+Jetzt dividieren wir Zähler und Nenner jeweils durch $n^{100}$. Im Zähler können
+wir dann kürzen, im Nenner wenden wir ein Potenzgesetz an: $a^n/b^n = (a/b)^n$:\\
+\\
+$\lim\limits_{n\rightarrow\infty}|\frac{a_{n+1}}{a_n}|=\lim\limits_{n\rightarrow\infty}|\frac{\frac{3\cdot \not{n^{100}}}{\not{\textcolor{blue}{n^{100}}}}}{\frac{(n+1)^{100}}{\textcolor{blue}{n^{100}}}}|=\lim\limits_{n\rightarrow\infty}|\frac{3}{(\frac{n+1}{n})^{100}}|$\\
+\\
+Den Bruch im Nenner schreiben wir auseinander, und können dann kürzen:
+\\
+$\lim\limits_{n\rightarrow\infty}|\frac{a_{n+1}}{a_n}|=\lim\limits_{n\rightarrow\infty}|\frac{3}{(\frac{\not{n}}{\not{n}}+\frac{1}{n})^{100}}|=\lim\limits_{n\rightarrow\infty}|\frac{3}{(1+\frac{1}{n})^{100}}|$\\
+\\
+Nun führen wir den Grenzwertübergang durch, d.h. wir ersetzen $n$ überall durch Unendlich:\\
+\\
+$\lim\limits_{n\rightarrow\infty}|\frac{a_{n+1}}{a_n}|=\lim\limits_{n\rightarrow\infty}|\frac{3}{(1\frac{1}{\infty})^{100}}|=|\frac{3}{(1+0)^{100}}|=|\frac{3}{1}|=\textcolor{blue}{3}$\\
+\\
+\underline{Ergebnis:}\\
+Das Quotientenkriterium liefert den Wert 3 und daher \textbf{divergiert} die gegebene Reihe.
+\newpage
+\underline{\textbf{\textcolor{red}{Wurzelkriterium:}}}\\
+Gilt für die Folge $a_k:\lim\limits_{k\rightarrow\infty}\sqrt[k]{|a_k|}<1$, dann ist die \textbf{Reihe} $\sum\limits_{k=1}^{\infty}a_k$ \textbf{absolut konvergent.}\\
+Für $\lim\limits_{k\rightarrow\infty}\sqrt[k]{|a_k|}>1$ gilt \textbf{divergenz}\\
+Für $\lim\limits_{k\rightarrow\infty}\sqrt[k]{|a_k|}=1$ kann man keine Aussage treffen.\\
+Bsp:\\
+$\sum\limits_{n=1}^{\infty}2^{-n}$\\
+\underline{1.Betrag:}\\
+$|a_n|=|2^{-n}|=2^{-n}$\\
+\underline{2.Wurzel nehmen:}\\
+$\sqrt[n]{2^{-n}}=(2^{-n})^\frac{1}{n}=2^{-\frac{\textcolor{red}{n}}{\textcolor{red}{n}}}=2^{-1}=\frac{1}{2}$\\
+\underline{3.Grenzwert berechnen:}\\
+$\lim\limits_{n\rightarrow\infty}\frac{1}{2}=\frac{1}{2}$\\
+\textbf{Dieser Wert ist kleiner als 1 ~ also konvergiert die Reihe.}\\
+\underline{\textbf{\textcolor{red}{Leibniz-Kriterium für alternierende Reihen:}}}\\
+Ist $a_k\geq 0$ eine monoton fallende Folge mit Folge der Eigenschaft $\lim\limits_{k\rightarrow\infty}a_k=0$, dann ist die \textbf{alternierende Reihe}\\
+$\sum\limits_{k=1}^{\infty}(-1)^{k+1}a_k=a_1-a_2+a_3-a_4+...$\\
+bzw\\
+$\sum\limits_{k=1}^{\infty}(-1)^{k}a_k=-a_1+a_2-a_3+a_4-...$\\
+\textbf{konvergent.}\\
+Bsp:\\
+Die alternierende harmonische Reihe $\sum\limits_{k=1}^{\infty}(-1)^{k+1}\frac{1}{k}=1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+..$\\
+erfüllt die Bedingungen des Leibniz-Kriteriums, denn\\
+$a_k=\frac{1}{k}\geq \frac{1}{k+1}=a_{k+1}$und$\lim\limits_{k\rightarrow\infty}a_k=0$\\
 \end{document} 
