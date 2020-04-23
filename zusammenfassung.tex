@@ -211,5 +211,32 @@ $|x-x_0|=p$ \textbf{keine Aussage}\\
 \includegraphics[width=0.8\textwidth]{Bilder/Zusfa/2.png}\\
 Konvergenzuntersuchung für die \textbf{Randpunkte} $-p+x_0$ und $p+x_0$ muss separat durchgeführt werden\\
 Dazu verwendet man z. B. das Majoranten-/Minorantenkriterium\\
+\\
+Zur Bestimmung des Konvergenzradius behandelt man Potenzreihen am besten wie gewöhnliche Reihen.\\
+\includegraphics[width=0.8\textwidth]{Bilder/Zusfa/3.png}\\
+\includegraphics[width=0.8\textwidth]{Bilder/Zusfa/4.png}\\
+\textbf{Egal, ob der Konvergenzradius mit dem Quotienten- oder mit
+dem Wurzelkriterium bestimmt wird, beide Kriterien liefern
+den gleichen Wert.}\\
+\\
+\\Bsp:\\
+$\sum\limits_{k=1}^{\infty}\frac{x^k}{k}$ mit \textcolor{red}{$a_k=\frac{1}{k}$},$x_0=0$,\textcolor{blue}{$a_{k+1}=\frac{1}{k+1}$}\\
+$p=\lim\limits_{k\rightarrow\infty}|\frac{\textcolor{red}{a_k}}{\textcolor{blue}{a_{k+1}}}|=\lim\limits_{k\rightarrow\infty}|\frac{1}{k}\frac{k+1}{1}|=\lim\limits_{k\rightarrow\infty}|1+\frac{1}{k}|=1$\\
+Die Potenzreihe ist für alle reellen Zahlen $x$ mit $|x|<p=1$ \textbf{absolut konvergent}\\
+Für $x=1$ gilt: harmonische Reihe $\rightarrow$ \textbf{divergent}\\
+Für $x=-1$ gilt: alternierende harmonische Reihe $\rightarrow$ \textbf{konvergent nach Leibniz}
+\subsection{Stetigkeitssatz}
+Hat die Potenzreihe $\sum\limits_{k=0}^{\infty}a_k(x-x_0)^k$ den \textbf{Konvergenzradius} $p$, so ist die Potenzreihe für $|x-x_0|<p$ stetig.
+\\
+\\
+\underline{Satz3:}\\
+Besitzen die beiden Potenzreihen $\sum\limits_{k=0}^{\infty}a_kx^k,\sum\limits_{k=0}^{\infty}b_kx^k$ die Konvergenzradien $p_a$ bzw. $p_b$, dann dürfen die Potenzreihen im Inneren des kleineren Konvergenzintervalls\\
+$p=min\{p_a,p_b\} $ \\
+gliedweise addiert bzw. subtrahiert und gliedweise mit einer Zahl $\alpha$ multipliziert werden.\\
+Die daraus entstehenden Potenzreihen:\\
+$\sum\limits_{k=0}^{\infty}a_kx^k+\sum\limits_{k=0}^{\infty}b_kx^k=\sum\limits_{k=0}^{\infty}(a_k+b_k)x^k,\alpha\sum\limits_{k=0}^{\infty}a_kx^k=\sum\limits_{k=0}^{\infty}\alpha a_kx^k$\\
+haben ebenfalls den Konvergenzradius $p>0$
+\\
+Das gilt auch für die \textbf{Ableitung}
 
 \end{document} 
