@@ -56,13 +56,16 @@ $x = -\frac{7}{2}$
 $|-\frac{7}{2}+3|=|3-3.5|=|-0.5|=0.5 = \frac{1}{2} \rightarrow $\textbf{Keine Aussage möglich}
 \\
 \\
-$\rightarrow$ Randpunkte gesondert untersuchen:\\
+$\rightarrow$ Randpunkte gesondert untersuchen:(\textcolor{blue}{x einsetzen})\\
 \\
-$\sum\limits_{k=1}^{\infty}(2-\frac{1}{k})^k(-\frac{7}{2}+3)^k = \sum\limits_{k=1}^{\infty}(2-\frac{1}{k})^k(-\frac{1}{2})^k$ mit \textcolor{blue}{$\lim\limits_{k\rightarrow \infty}-(\frac{1}{2})^k\rightarrow 1$}\\
+$\sum\limits_{k=1}^{\infty}(2-\frac{1}{k})^k(-\frac{7}{2}+3)^k = \sum\limits_{k=1}^{\infty}(2-\frac{1}{k})^k(-\frac{1}{2})^k$\\
 \\
-$\rightarrow \lim\limits_{k\rightarrow \infty}(2-\frac{1}{k})^k = 1$ wegen \textcolor{blue}{$\lim\limits_{k\rightarrow \infty}\frac{1}{k}=0 $;$\lim\limits_{k\rightarrow \infty}2^k = 1$}
-\\\\
-$\rightarrow 1 > \frac{1}{2} \rightarrow $\textbf{divergent}
+$=\lim\limits_{k\rightarrow \infty}|(-1+\frac{1}{2k})^k|=\lim\limits_{k\rightarrow \infty}|\underbrace{(-1)^k}_{<0}||\underbrace{(1-\frac{1}{2k})^k}_{>0}|=\lim\limits_{k\rightarrow \infty}(1-\frac{1}{2}\cdot \frac{1}{k})^k$\\
+\\
+$=\lim\limits_{k\rightarrow \infty}(1+\frac{\textcolor{blue}{-\frac{1}{2}}}{k})^k = e^{-\frac{1}{2}} \neq 0 $ \textcolor{blue}{ wegen $\lim\limits_{k\rightarrow \infty}(1+\frac{x}{k})^k =e^x$}
+\\
+\\
+$\rightarrow $\textbf{divergent } (\textcolor{blue}{Nullfolgekriterium})
 \\
 \\
 \\
@@ -75,7 +78,7 @@ $\int x^2e^xdx=G(x)$\\
 $f(x) =e^x\rightarrow f'(x)=e^x$\\
 $g(x) =x^2\rightarrow g'(x)=2x$\\
 \\
-Einsetzten für partielle Integration(\textcolor{blue}{$\int f'(x)g(x)dx=f(x)g(x)-\int f(x)g'(x)dx$}):\\
+Einsetzen für partielle Integration(\textcolor{blue}{$\int f'(x)g(x)dx=f(x)g(x)-\int f(x)g'(x)dx$}):\\
 $\int e^xx^2dx=e^xx^2-\int e^x2x dx$\\
 \\
 zu $\int e^x2xdx$:\\
@@ -84,7 +87,7 @@ $g(x) =2x\rightarrow g'(x)=2$\\
 \\
 $\rightarrow \int e^x2x dx = e^x2x-\int e^x2dx = e^x2x-2\int e^x dx$\\
 $=e^x2x-2e^x+C$\\
-Einsetzten in $e^xx^2-\int e^x2x dx$:\\
+Einsetzen in $e^xx^2-\int e^x2x dx$:\\
 $= e^xx^2-(e^x2x-2e^x+C)$\\$= e^xx^2-e^x2x+2e^xC$\\$= e^x(x^2-2x+2)+C$\\\underline{$=e^x(x^2-2x+2) = G(x)$}\\
 \section*{Aufgabe 10}
 $f(x)=\int \frac{cos(ln(x))}{x}dx$ mit $x>0$\\
