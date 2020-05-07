@@ -31,3 +31,6 @@ binomische formeln
 e^0 = 1
 e^1 = e
 (k+1)! = k!(k+1)
+x^a*x^b = x^(a+b)
+x^(a/b) = b'te Wurzel von x^a*x^b
+x^(a-b) = x^a/x^b

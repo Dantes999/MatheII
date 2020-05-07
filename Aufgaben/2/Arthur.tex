@@ -1,0 +1,100 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{german}      % Deutsche TeX-Eigenheiten
+\usepackage{sectsty}
+\usepackage{xcolor}
+\usepackage{makeidx}
+\makeindex            % damit eine Indexdatei angelegt wird
+
+\usepackage{graphicx}
+
+\usepackage{amsmath}  % allgemeine Mathe-Erweiterungen
+\usepackage{amssymb}  % Symbole und Schriftarten
+\usepackage{amsthm}   % erweiterte Theorem-Umgebungen
+
+\usepackage{mathrsfs}  % gibt den Befehl "\mathscr{}" f�r sch�ne
+
+\begin{document}
+Mathematik für Informatiker II - Arthur Kunze
+\section*{Aufgabe 6}
+\subsection*{a)}
+$\sum\limits_{k=0}^{\infty}(\frac{4k-1}{7k+3})^k$\\
+\\
+Mit dem Wurzelkriterium:\\
+$\lim\limits_{k\rightarrow\infty}\frac{1}{\sqrt[k]{|a_k|}} \rightarrow a_k=(\frac{4k-1}{7k+3})^k$\\
+\\
+$\lim\limits_{k\rightarrow\infty}\frac{1}{\sqrt[k]{|(\frac{4k-1}{7k+3})^k|}} = \lim\limits_{k\rightarrow\infty}\frac{1}{|\frac{4k-1}{7k+3}|} = \lim\limits_{k\rightarrow\infty}\frac{7k+3}{4k+1}=$\textcolor{blue}{$\frac{\infty}{\infty}$}\\
+\\
+1.Regel L'Hostpital:\\
+\\
+$=\frac{7}{4} > 1 \rightarrow$ \textbf{divergent}\\
+\\
+\subsection*{b)}
+$\sum\limits_{k=0}^{\infty}\frac{(-2)^k}{1+2^{2k}}$ mit $a_k=\frac{(-2)^k}{1+2^{2k}}$\\
+$= -(\frac{2k}{1+4^k})$ für $|a_k| = \frac{2k}{1+4^k} \leq \frac{2^k}{4^k}$\\
+$\sum\limits_{k=0}^{\infty}\frac{2^k}{4^k} = 2 \rightarrow $divergent
+\newpage
+\section*{Aufgabe 7}
+$\sum\limits_{k=1}^{\infty}(-1)^{k+1}\frac{3}{\sqrt[5]{k^3}}(x-2)^k$ mit $x_0 = 2; a_k=(-1)^{k+1}\frac{3}{\sqrt[5]{k^3}}$\\
+\\
+Mit dem Wurzelkriterium:\\
+$\lim\limits_{k\rightarrow\infty}\frac{1}{\sqrt[k]{|a_k|}} \rightarrow \lim\limits_{k\rightarrow\infty}\frac{1}{\sqrt[k]{(-1)^{k+1}\frac{3}{\sqrt[5]{k^3}}}} = \lim\limits_{k\rightarrow\infty}\frac{1}{\sqrt[k]{\frac{3}{\sqrt[5]{k^3}}}} = \frac{1}{1} = 1 = \rho$\\
+\textcolor{blue}{wegen $\lim\limits_{k\rightarrow\infty}\sqrt[k]{x / k} \rightarrow 1$}\\
+$= |x-2| \cdot 1$
+$= |x-2| < 1 \rightarrow$ \textbf{Konvergenz}\\
+Die Potenzreihe konvergiert für alle reellen Zahlen x mit $1<x<3$\\
+\section*{Aufgabe 8}
+$\sum\limits_{k=1}^{\infty}(2-\frac{1}{k})^k(x+3)^k$ mit $x_0=3; a_k=(2-\frac{1}{k})^k$\\
+\\
+Mit dem Wurzelkriterium:\\
+$\lim\limits_{k\rightarrow\infty}\frac{1}{\sqrt[k]{|a_k|}} \rightarrow \lim\limits_{k\rightarrow\infty}\frac{1}{\sqrt[k]{(2-\frac{1}{k}^k)}}=\lim\limits_{k\rightarrow\infty}\frac{1}{\sqrt[k]{|2-\frac{1}{k}^k|}}=\lim\limits_{k\rightarrow\infty}\frac{1}{(2-\frac{1}{k})}=\frac{1}{2}=\rho$\\
+\textcolor{blue}{wegen $\lim\limits_{k\rightarrow\infty}\frac{1}{k}\rightarrow 0$}
+\\
+\\
+$x = -\frac{7}{2}$
+\\
+$|-\frac{7}{2}+3|=|3-3.5|=|-0.5|=0.5 = \frac{1}{2} \rightarrow $\textbf{Keine Aussage möglich}
+\\
+\\
+$\rightarrow$ Randpunkte gesondert untersuchen:\\
+\\
+$\sum\limits_{k=1}^{\infty}(2-\frac{1}{k})^k(-\frac{7}{2}+3)^k = \sum\limits_{k=1}^{\infty}(2-\frac{1}{k})^k(-\frac{1}{2})^k$ mit \textcolor{blue}{$\lim\limits_{k\rightarrow \infty}-(\frac{1}{2})^k\rightarrow 1$}\\
+\\
+$\rightarrow \lim\limits_{k\rightarrow \infty}(2-\frac{1}{k})^k = 1$ wegen \textcolor{blue}{$\lim\limits_{k\rightarrow \infty}\frac{1}{k}=0 $;$\lim\limits_{k\rightarrow \infty}2^k = 1$}
+\\\\
+$\rightarrow 1 > \frac{1}{2} \rightarrow $\textbf{divergent}
+\\
+\\
+\\
+$x = -3$
+\\
+$|-3+3|=|3-3|=|0|=0 < \frac{1}{2} \rightarrow $\textbf{absolut konvergent}
+\newpage
+\section*{Aufgabe 9}
+$\int x^2e^xdx=G(x)$\\
+$f(x) =e^x\rightarrow f'(x)=e^x$\\
+$g(x) =x^2\rightarrow g'(x)=2x$\\
+\\
+Einsetzten für partielle Integration(\textcolor{blue}{$\int f'(x)g(x)dx=f(x)g(x)-\int f(x)g'(x)dx$}):\\
+$\int e^xx^2dx=e^xx^2-\int e^x2x dx$\\
+\\
+zu $\int e^x2xdx$:\\
+$f(x) =e^x\rightarrow f'(x)=e^x$\\
+$g(x) =2x\rightarrow g'(x)=2$\\
+\\
+$\rightarrow \int e^x2x dx = e^x2x-\int e^x2dx = e^x2x-2\int e^x dx$\\
+$=e^x2x-2e^x+C$\\
+Einsetzten in $e^xx^2-\int e^x2x dx$:\\
+$= e^xx^2-(e^x2x-2e^x+C)$\\$= e^xx^2-e^x2x+2e^xC$\\$= e^x(x^2-2x+2)+C$\\\underline{$=e^x(x^2-2x+2) = G(x)$}\\
+\section*{Aufgabe 10}
+$f(x)=\int \frac{cos(ln(x))}{x}dx$ mit $x>0$\\
+\\
+Substituieren:\\
+$t=ln(x),dt=\frac{1}{x}$\\
+\\
+Einsetzen:\\
+$\int \frac{cos(t)}{x}\frac{1}{x}dt=\int cos(t) dt=sin(x)+C$\\
+\\
+Re-Substituieren:\\
+$F(x)=sin(ln(x))+C$
+\end{document} 
