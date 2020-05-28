@@ -96,4 +96,31 @@ $f(x)=\begin{cases}
 $a_0=\frac{1}{2\pi}\cdot \int_{-\pi}^\pi f(x)dx = \frac{1}{2\pi}(\int_{-\pi}^0 1dx+\int_0^\pi xdx)$\\
 \\
 $=\frac{1}{2\pi}(\left[x\right]_{-\pi}^0+\left[\frac{x^2}{2}\right]_{0}^\pi)=\frac{1}{2\pi}((0-(-\pi))+(\frac{\pi^2}{2}-\frac{0^2}{2}))=\frac{1}{2\pi}(\pi+\frac{\pi^2}{2})$\\
+\\
+$=\frac{\pi}{2\pi}+\frac{\pi^2}{4\pi}=\frac{2\pi}{4\pi}+\frac{\pi^2}{4\pi}=\frac{2\pi+\pi^2}{4\pi}=\frac{\pi(2+\pi)}{4\pi}=\frac{2+\pi}{4}=\frac{\pi}{2}$\\
+\\
+$a_k=\frac{1}{\pi}\int_{-\pi}^\pi f(x)cos(kx)dx = \frac{1}{\pi}(\int_{-\pi}^0 1cos(kx)+\int_0^\pi xcos(kx))$\\
+\\
+$=\frac{1}{\pi}(\left[\frac{1}{k}sin(kx)\right]_{-\pi}^0+\left[\frac{cos(kx)}{k^2}+\frac{xsin(kx)}{k}\right]_0^\pi)$\\
+\\
+$=\frac{1}{k\pi}(\left[sin(kx)\right]_{-\pi}^0 + \left[\frac{cos(kx)}{k}+xsin(kx)\right]_0^\pi)$\\
+\\
+$=\frac{1}{k\pi}((\underbrace{sin(0)}_{\rightarrow 0}-(\underbrace{sin(k(-\pi)}_{\rightarrow 0})))+(\frac{\overbrace{cos(k\pi)}^{(-1)^k}}{k}+\pi \underbrace{sin(k\pi)}_{\rightarrow 0}-\frac{\overbrace{cos(0)}^{\rightarrow 1}}{k}))$\\
+\\
+$=\frac{1}{k\pi}(\frac{(-1)^k)}{k}-\frac{1}{k})=\frac{1}{k\pi}(\frac{(-1)^k-1}{k})=\frac{(-1)^k-1}{\pi k^2}$\\
+\\
+$b_k=\frac{1}{\pi}\int_{-\pi}^\pi f(x)sinf(kx)dx = \frac{1}{\pi}(\int_{-\pi}^01sin(kx)dx+\int_0^\pi xsin(kx)dx)$\\
+\\
+$=\frac{1}{\pi}(\left[-\frac{1}{k}cos(kx)\right]_{-\pi}^0+\left[\frac{sin(kx)}{k^2}-\frac{xcos(kx)}{k}\right]_0^\pi)$\\
+\\
+$=\frac{1}{k\pi}((\underbrace{-cos(0)}_{\rightarrow -1}-(-\underbrace{cos(-\pi k)}_{(-1)^k})+((\frac{\overbrace{sin(k\pi)}^{0}}{k}-\pi \underbrace{cos(k\pi)}_{(-1)^k})-(\frac{\overbrace{sin(0)}^{0}}{k}))))$\\
+\\
+$=\frac{1}{k\pi}((-1+(-1)^k)+(k-\pi (-1)^k -k))$\\
+\\
+$=\frac{1}{k\pi}(((-1)^k-1)+(-\pi (-1)^k))= \frac{1}{k\pi}(-1)^k(-1+(-\pi))$\\
+\\
+$=\frac{1}{k\pi}(-1)^k(-1-\pi)$\\
+
+
+
 \end{document} 
