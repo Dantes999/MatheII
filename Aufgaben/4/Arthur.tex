@@ -1,0 +1,49 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{german}      % Deutsche TeX-Eigenheiten
+\usepackage{sectsty}
+\usepackage{xcolor}
+\usepackage{makeidx}
+\makeindex            % damit eine Indexdatei angelegt wird
+
+\usepackage{graphicx}
+
+\usepackage{amsmath}  % allgemeine Mathe-Erweiterungen
+\usepackage{amssymb}  % Symbole und Schriftarten
+\usepackage{amsthm}   % erweiterte Theorem-Umgebungen
+
+\usepackage{mathrsfs}  % gibt den Befehl "\mathscr{}" f�r sch�ne
+
+\begin{document}
+Mathematik für Informatiker II - Arthur Kunze
+\section*{Aufgabe 16}
+$\vec{a} = \left( \begin{array}{c} -19 \\\ 3 \\\ 7 \ \end{array}\right)\in \mathbb{R}^3 \quad \vec{b} = \left( \begin{array}{c} -4 \\\ 3 \\\ 12 \ \end{array}\right)\in \mathbb{R}^3$\
+\\
+$\vec{v} = \frac{<\vec{a},\vec{b}>}{||\vec{b}||^2}\cdot \vec{b} \rightarrow <\vec{a},\vec{b}> = (-19)\cdot (-4)+3\cdot 3+7\cdot 12 = 169$\\
+\\
+$||\vec{b}|| =\sqrt{<\vec{b},\vec{b}>}=\sqrt{(-4)^2+3^2+12^2} = \sqrt{137}$\\
+\\
+$\rightarrow \vec{u}=\frac{169}{\sqrt{137}^2}\cdot \left( \begin{array}{c} -4 \\\ 3 \\\ 12 \ \end{array}\right)=\frac{169}{137}\cdot \left( \begin{array}{c} -4 \\\ 3 \\\ 12 \ \end{array}\right)$\\
+\\
+$\vec{v}= \vec{a}-\vec{u} = \frac{137}{137}\cdot \vec{a} - \frac{169}{137}\cdot \left( \begin{array}{c} -4 \\\ 3 \\\ 12 \ \end{array}\right)= \frac{1}{137}\cdot 137\vec{a} - \frac{169}{137}\cdot \left( \begin{array}{c} -4 \\\ 3 \\\ 12 \ \end{array}\right)$\\
+\\
+$=\frac{1}{137}(137\vec{a}-169\cdot \left( \begin{array}{c} -4 \\\ 3 \\\ 12 \ \end{array}\right))=\frac{1}{137}(137\cdot \left( \begin{array}{c} -19 \\\ 3 \\\ 7 \ \end{array}\right)-169\cdot \left( \begin{array}{c} -4 \\\ 3 \\\ 12 \ \end{array}\right))$\\
+\\
+$=\frac{1}{137}(\left( \begin{array}{c} 137\cdot -4 \\\ 137\cdot 3 \\\ 137\cdot 12 \ \end{array}\right)-\left( \begin{array}{c} -169\cdot -19 \\\ -169\cdot 3 \\\ -169\cdot 7 \ \end{array}\right))= \frac{1}{137}(\left( \begin{array}{c} -548 \\\ 411 \\\ 137\cdot 12 \ \end{array}\right)-\left( \begin{array}{c} -169\cdot -19 \\\ -507 \\\ -1183 \ \end{array}\right))$\\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document} 
